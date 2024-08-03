@@ -2,7 +2,8 @@
   display: flex;
   flex-direction: column-reverse;
   height: 100%;
-  width: 100%;
+  width: 150%;
+  color: #ffffff; /* Light text color */
 }
 
 .inputForm {
@@ -20,19 +21,20 @@
   border-radius: 60px;
   border: 2px solid transparent;
   font-size: 1em;
-  background-color: #efefef;
+  background-color: #333333; /* Dark background for the input */
+  color: #ffffff; /* Light text color */
 }
 
 .input:focus {
   outline: none !important;
-  border-color: #000;
-  background-color: white;
+  border-color: #ffffff; /* Light border color on focus */
+  background-color: #444444; /* Slightly lighter background on focus */
 }
 
 .button {
   padding: 8px 24px;
-  background-color: #000;
-  color: white;
+  background-color: #ffffff; /* Light background for the button */
+  color: #000000; /* Dark text color */
   border: none;
   font-size: 1em;
   border-radius: 60px; /* Removed duplicate border-radius property */
@@ -50,6 +52,7 @@
   flex-direction: column;
   order: 2;
   white-space: pre-wrap;
+  background-color: #121212; /* Dark background for messages */
 }
 
 .userMessage,
@@ -71,17 +74,19 @@
 
 .userMessage {
   align-self: flex-end;
-  color: #fff;
-  background-color: #000;
+  color: #000000; /* Dark text color */
+  background-color: #ffffff; /* Light background color */
 }
 
 .assistantMessage {
-  background-color: #efefef;
+  background-color: #333333; /* Dark background for assistant messages */
+  color: #ffffff; /* Light text color */
 }
 
 .codeMessage {
   padding: 10px 16px;
-  background-color: #e9e9e9;
+  background-color: #444444; /* Dark background for code messages */
+  color: #ffffff; /* Light text color */
   font-family: monospace;
   counter-reset: line;
 }

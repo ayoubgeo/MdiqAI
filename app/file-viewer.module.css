@@ -5,18 +5,19 @@
   align-items: center;
   width: 100%;
   height: 100%;
-  padding: 20px;
-  background-color: #efefef;
+  padding: 10px;
+  background-color: #1e1e1e; /* Dark background */
   overflow: hidden;
-  border-radius: 16px;
+  border-radius: 10px;
+  color: #ffffff; /* Light text color */
 }
 
 .filesList {
   overflow-y: auto;
-  padding: 10px;
+  padding: 5px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 8px;
   align-items: center;
   width: 100%;
 }
@@ -29,34 +30,37 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #ececf1;
-  gap: 16px;
+  border-bottom: 1px solid #444444; /* Darker border */
+  gap: 8px;
   width: 100%;
 }
 
 .fileName {
   flex-grow: 1;
+  color: #ffffff; /* Light text color */
 }
+
 .fileStatus {
   font-size: 0.8em;
-  color: #666;
+  color: #cccccc; /* Light grey text color */
 }
 
 .fileDeleteIcon {
   cursor: pointer;
+  color: #ff5555; /* Red delete icon */
 }
 
 .fileUploadContainer {
-  padding: 10px;
+  padding: 5px;
   display: flex;
   justify-content: center;
 }
 
 .fileUploadBtn {
-  background-color: #000;
-  color: white;
-  padding: 8px 24px;
-  border-radius: 32px;
+  background-color: #ffffff; /* Light background */
+  color: #000000; /* Dark text color */
+  padding: 6px 16px;
+  border-radius: 20px;
   text-align: center;
   display: inline-block;
   cursor: pointer;
@@ -67,12 +71,14 @@
 }
 
 .title {
-  font-size: 1.2em;
+  font-size: 1em;
   font-weight: 600;
+  color: #ffffff; /* Light text color */
 }
 
 .fileName {
   width: 100%;
   display: flex;
   flex-direction: column;
+  color: #ffffff; /* Light text color */
 }

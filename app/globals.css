@@ -1,6 +1,6 @@
 :root {
   --max-width: 1100px;
-  --border-radius: 12px;
+  --border-radius: 8px;
   --font-mono: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono",
     "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
     "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
@@ -16,10 +16,16 @@ html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
+  background-color: #121212; /* Dark background */
+  color: #ffffff; /* Light text color */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
+  max-width: 50vw;
+  margin: 0 auto; /* Center the body */
 }
 
 a {
@@ -34,10 +40,12 @@ a {
   transform: translate(-50%, -50%);
   width: 700px;
   height: 300px;
-  border-radius: 12px;
+  border-radius: var(--border-radius);
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: #1e1e1e; /* Dark background for warnings */
+  color: #ffffff; /* Light text color */
 }
 
 .logo {
@@ -61,13 +69,204 @@ ol {
 }
 
 a {
-  color: blue;
+  color: #1e90ff; /* Adjusted link color for better visibility on dark background */
 }
 
 pre {
   margin: -4px -16px;
-  padding: 20px;
+  padding: 10px; /* Reduced padding */
   white-space: pre-wrap;
-  background-color: #e4e4e4;
-  color: black;
+  background-color: #333333; /* Dark background for preformatted text */
+  color: #ffffff; /* Light text color */
+  border-radius: var(--border-radius);
+}
+
+.chatContainer {
+  display: flex;
+  flex-direction: column-reverse;
+  height: 100%;
+  width: 100%;
+  background-color: #121212; /* Dark background for the chat container */
+  color: #ffffff; /* Light text color */
+}
+
+.inputForm {
+  display: flex;
+  width: 100%;
+  padding: 5px;
+  padding-bottom: 10px; /* Reduced padding */
+  order: 1;
+  background-color: #1e1e1e; /* Dark background for the input form */
+}
+
+.input {
+  flex-grow: 1;
+  padding: 8px 12px;
+  margin-right: 5px;
+  border-radius: 30px;
+  border: 2px solid transparent;
+  font-size: 0.8em;
+  background-color: #333333; /* Dark background for the input */
+  color: #ffffff; /* Light text color */
+}
+
+.input:focus {
+  outline: none !important;
+  border-color: #ffffff; /* Light border color on focus */
+  background-color: #444444; /* Slightly lighter background on focus */
+}
+
+.button {
+  padding: 6px 16px;
+  background-color: #ffffff; /* Light background for the button */
+  color: #000000; /* Dark text color */
+  border: none;
+  font-size: 0.8em;
+  border-radius: 30px; /* Removed duplicate border-radius property */
+}
+
+.button:disabled {
+  background-color: lightgrey;
+}
+
+.messages {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  order: 2;
+  white-space: pre-wrap;
+  background-color: #121212; /* Dark background for messages */
+}
+
+.userMessage,
+.assistantMessage,
+.codeMessage {
+  margin: 4px 0;
+  padding: 6px 10px;
+  align-self: flex-start;
+  border-radius: 10px;
+  max-width: 80%;
+  overflow-wrap: break-word;
+  font-size: 0.9em;
+}
+
+.assistantMessage img {
+  max-width: 100%;
+  margin: 4px 0;
+  border-radius: 5px;
+}
+
+.userMessage {
+  align-self: flex-end;
+  color: #000000; /* Dark text color */
+  background-color: #ffffff; /* Light background color */
+}
+
+.assistantMessage {
+  background-color: #333333; /* Dark background for assistant messages */
+  color: #ffffff; /* Light text color */
+}
+
+.codeMessage {
+  padding: 6px 10px;
+  background-color: #444444; /* Dark background for code messages */
+  color: #ffffff; /* Light text color */
+  font-family: monospace;
+  counter-reset: line;
+}
+
+.codeMessage > div {
+  margin-top: 2px;
+}
+
+.codeMessage span {
+  color: #b8b8b8;
+  margin-right: 5px;
+}
+
+.fileViewer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  background-color: #1e1e1e; /* Dark background */
+  overflow: hidden;
+  border-radius: 10px;
+  color: #ffffff; /* Light text color */
+}
+
+.filesList {
+  overflow-y: auto;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+  width: 100%;
+}
+
+.grow {
+  flex-grow: 1;
+}
+
+.fileEntry {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #444444; /* Darker border */
+  gap: 8px;
+  width: 100%;
+}
+
+.fileName {
+  flex-grow: 1;
+  color: #ffffff; /* Light text color */
+}
+
+.fileStatus {
+  font-size: 0.8em;
+  color: #cccccc; /* Light grey text color */
+}
+
+.fileDeleteIcon {
+  cursor: pointer;
+  color: #ff5555; /* Red delete icon */
+}
+
+.fileUploadContainer {
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+}
+
+.fileUploadBtn {
+  background-color: #ffffff; /* Light background */
+  color: #000000; /* Dark text color */
+  padding: 6px 16px;
+  border-radius: 20px;
+  text-align: center;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.fileUploadInput {
+  display: none;
+}
+
+.title {
+  font-size: 1em;
+  font-weight: 600;
+  color: #ffffff; /* Light text color */
+}
+
+.fileName {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  color: #ffffff; /* Light text color */
 }
