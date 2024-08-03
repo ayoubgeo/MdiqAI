@@ -79,7 +79,7 @@ const Chat = ({
       });
       const data = await res.json();
       setThreadId(data.threadId);
-      console.log(`New thread created with ID: ${data.threadId}`);
+      // console.log(`New thread created with ID: ${data.threadId}`);
     };
     createThread();
   }, []);
@@ -98,7 +98,7 @@ const Chat = ({
       const stream = AssistantStream.fromReadableStream(response.body);
       handleReadableStream(stream);
     } catch (error) {
-      console.error("Error sending message:", error);
+      // console.error("Error sending message:", error);
       setInputDisabled(false); // Re-enable input in case of error
     }
   };
@@ -140,7 +140,7 @@ const Chat = ({
       try {
         return await operation();
       } catch (error) {
-        console.error(`Attempt ${i + 1} failed. Retrying in ${delay}ms...`, error);
+        // console.error(`Attempt ${i + 1} failed. Retrying in ${delay}ms...`, error);
         if (i < retries - 1) {
           await new Promise((resolve) => setTimeout(resolve, delay));
         } else {
@@ -159,7 +159,7 @@ const Chat = ({
 
   // textDelta - append text to last assistant message
   const handleTextDelta = (delta: { value?: string; annotations?: any }) => {
-    console.log("Text delta received:", delta);
+    // console.log("Text delta received:", delta);
     if (delta.value != null) {
       appendToLastMessage(delta.value);
     }
@@ -175,14 +175,14 @@ const Chat = ({
 
   // toolCallCreated - log new tool call
   const toolCallCreated = (toolCall: any) => {
-    console.log("Tool call created:", toolCall);
+    // console.log("Tool call created:", toolCall);
     if (toolCall.type !== "code_interpreter") return;
     appendMessage("code", "");
   };
 
   // toolCallDelta - log delta and snapshot for the tool call
   const toolCallDelta = (delta: any, snapshot: any) => {
-    console.log("Tool call delta:", delta, snapshot);
+    // console.log("Tool call delta:", delta, snapshot);
     if (delta.type !== "code_interpreter") return;
     if (!delta.code_interpreter.input) return;
     appendToLastMessage(delta.code_interpreter.input);
@@ -192,7 +192,7 @@ const Chat = ({
   const handleRequiresAction = async (
     event: any // Use 'any' if you do not have the exact type for 'AssistantStreamEvent.ThreadRunRequiresAction'
   ) => {
-    console.log("Requires action event:", event);
+    // console.log("Requires action event:", event);
     const runId = event.data.id;
     const toolCalls = event.data.required_action.submit_tool_outputs.tool_calls;
     // loop over tool calls and call function handler
@@ -208,7 +208,7 @@ const Chat = ({
 
   // handleRunCompleted - re-enable the input form
   const handleRunCompleted = () => {
-    console.log("Run completed");
+    // console.log("Run completed");
     setInputDisabled(false);
   };
 
@@ -221,7 +221,7 @@ const Chat = ({
 
     // textDelta - append text to last assistant message
     stream.on("textDelta", (delta: { value?: string; annotations?: any }) => {
-      console.log("Stream textDelta:", delta);
+      // console.log("Stream textDelta:", delta);
       if (delta.value != null) {
         currentMessage += delta.value;
         appendToLastMessage(delta.value);
@@ -236,16 +236,16 @@ const Chat = ({
 
     // imageFileDone - show image in chat
     stream.on("imageFileDone", (image: { file_id: string }) => {
-      console.log("Stream imageFileDone:", image);
+      // console.log("Stream imageFileDone:", image);
       currentMessage += `\n![${image.file_id}](/api/files/${image.file_id})\n`;
     });
 
     // Handle the completion of the stream
     stream.on("event", (event) => {
-      console.log("Stream event:", event);
+      // console.log("Stream event:", event);
       if (event.event === "thread.run.completed") {
         if (messageContainsCode) {
-          console.log("Message contains code block, displaying placeholder.");
+          // console.log("Message contains code block, displaying placeholder.");
           // Replace placeholder with the actual result
           setTimeout(() => {
             replaceLastMessage("assistant", currentMessage);
@@ -258,7 +258,7 @@ const Chat = ({
 
     // Handle stream errors
     stream.on("error", async (err) => {
-      console.error("Stream error:", err);
+      // console.error("Stream error:", err);
       appendToLastMessage("\nAn error occurred while processing. Retrying...\n");
       try {
         await retryOperation(() => handleReadableStream(stream), 2000, 3);
@@ -295,7 +295,7 @@ const Chat = ({
   */
 
   const appendToLastMessage = (text: string) => {
-    console.log("Appending to last message:", text);
+    // console.log("Appending to last message:", text);
     setMessages((prevMessages) => {
       const lastMessage = prevMessages[prevMessages.length - 1];
       const updatedLastMessage = {
@@ -307,12 +307,12 @@ const Chat = ({
   };
 
   const appendMessage = (role: string, text: string) => {
-    console.log("Appending message:", role, text);
+    // console.log("Appending message:", role, text);
     setMessages((prevMessages) => [...prevMessages, { role, text }]);
   };
 
   const replaceLastMessage = (role: string, text: string) => {
-    console.log("Replacing last message:", role, text);
+    // console.log("Replacing last message:", role, text);
     setMessages((prevMessages) => {
       const updatedMessages = prevMessages.slice(0, -1);
       updatedMessages.push({ role, text });
@@ -321,7 +321,7 @@ const Chat = ({
   };
 
   const annotateLastMessage = (annotations: any) => {
-    console.log("Annotating last message:", annotations);
+    // console.log("Annotating last message:", annotations);
     setMessages((prevMessages) => {
       const lastMessage = prevMessages[prevMessages.length - 1];
       const updatedLastMessage = {
