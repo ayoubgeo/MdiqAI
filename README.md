@@ -3,7 +3,6 @@
 A quick-start template using the OpenAI [Assistants API](https://platform.openai.com/docs/assistants/overview) with [Next.js](https://nextjs.org/docs).
 <br/>
 <br/>
-![OpenAI Assistants API Quickstart](https://github.com/openai/openai-assistants-quickstart/assets/27232/755e85e9-3ea4-421f-b202-3b0c435ea270)
 
 ## Quickstart Setup
 
@@ -71,3 +70,39 @@ The main logic for chat will be found in the `Chat` component in `app/components
 ## Feedback
 
 Let us know if you have any thoughts, questions, or feedback in [this form](https://docs.google.com/forms/d/e/1FAIpQLScn_RSBryMXCZjCyWV4_ebctksVvQYWkrq90iN21l1HLv3kPg/viewform?usp=sf_link)!
+
+# Start the app online
+## Create a script to start the app start-mdqi.sh
+
+```shell
+#!/bin/bash
+source /home2/cartoma/nodevenv/mdiq/16/bin/activate
+cd /home2/cartoma/mdiq
+source ~/.nvm/nvm.sh
+nvm use 18.17.0
+npm start
+```
+# Run the script
+#Convert the file to Unix format
+```shell
+sed -i 's/\r$//' /home2/cartoma/mdiq/start-mdqi.sh
+chmod +x /home2/cartoma/mdiq/start-mdqi.sh
+```
+# Start the app using nohup
+```shell
+nohup /home2/cartoma/mdiq/start-mdqi.sh > /home2/cartoma/mdiq/output.log 2>&1 &
+```
+# Check logs
+```shell
+tail -f /home2/cartoma/mdiq/output.log
+```
+## Stop the app
+```shell
+pm2 status
+pm2 stop id
+```
+- or using top
+- Find the process id
+```shell
+kill id
+```
