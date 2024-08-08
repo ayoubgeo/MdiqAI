@@ -1,0 +1,406 @@
+/*!*******************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[3]!./app/warnings.module.css ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************/
+.warnings_container__BMxPF {
+  padding: 20px;
+  /* background-color: #d95c5c; */
+  /* outline: 8px solid #4caf50; */
+  background-color: #fff;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 12px;
+  color: #000;
+}
+
+.warnings_empty__MgBNt,
+.warnings_assistantId__9MzDe {
+  background-color: #ffffff;
+  padding: 10px;
+  margin-bottom: 10px;
+  width: 80%;
+  border: 1px solid #ccc;
+}
+
+.warnings_button__G_Xfr {
+  padding: 8px 24px;
+  background-color: #000;
+  color: white;
+  border: none;
+  font-size: 1em;
+  border-radius: 60px;
+  cursor: pointer;
+}
+.warnings_container__BMxPF h1 {
+  font-size: 1.5em;
+  font-weight: 600;
+}
+.warnings_result__FzJpW {
+  border-radius: 8px;
+  padding: 0 8px;
+  padding: 8px 24px;
+  background-color: #000;
+  color: white;
+  font-size: 1em;
+  border-radius: 60px;
+}
+
+.warnings_message__41pIL {
+  margin: 20px 0;
+  font-size: 1em;
+}
+.warnings_message__41pIL span {
+  background-color: #efefef;
+  border-radius: 8px;
+  padding: 0 8px;
+}
+
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[11].oneOf[2].use[1]!./node_modules/next/dist/build/webpack/loaders/next-font-loader/index.js??ruleSet[1].rules[11].oneOf[2].use[2]!./node_modules/next/font/google/target.css?{"path":"app\\layout.tsx","import":"Inter","arguments":[{"subsets":["latin"]}],"variableName":"inter"} ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/* cyrillic-ext */
+@font-face {
+  font-family: '__Inter_36bd41';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url(/_next/static/media/55c55f0601d81cf3-s.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: '__Inter_36bd41';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url(/_next/static/media/26a46d62cd723877-s.woff2) format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: '__Inter_36bd41';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url(/_next/static/media/97e0cb1ae144a2a9-s.woff2) format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: '__Inter_36bd41';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url(/_next/static/media/581909926a08bbc8-s.woff2) format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: '__Inter_36bd41';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url(/_next/static/media/df0a9ae256c0569c-s.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: '__Inter_36bd41';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url(/_next/static/media/6d93bde91c0c2823-s.woff2) format('woff2');
+  unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: '__Inter_36bd41';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url(/_next/static/media/a34f9d1faa5f3315-s.p.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}@font-face {font-family: '__Inter_Fallback_36bd41';src: local("Arial");ascent-override: 90.20%;descent-override: 22.48%;line-gap-override: 0.00%;size-adjust: 107.40%
+}.__className_36bd41 {font-family: '__Inter_36bd41', '__Inter_Fallback_36bd41';font-style: normal
+}
+
+/*!*************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[11].oneOf[12].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[11].oneOf[12].use[3]!./app/globals.css ***!
+  \*************************************************************************************************************************************************************************************************************************************************************/
+:root {
+  --max-width: 1100px;
+  --border-radius: 8px;
+  --font-mono: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono",
+    "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
+    "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  background-color: #121212; /* Dark background */
+  color: #ffffff; /* Light text color */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+body {
+  max-width: 50vw;
+  margin: 0 auto; /* Center the body */
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.warnings {
+  position: absolute;
+  top: 21%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 700px;
+  height: 300px;
+  border-radius: var(--border-radius);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #1e1e1e; /* Dark background for warnings */
+  color: #ffffff; /* Light text color */
+}
+
+.logo {
+  width: 32px;
+  height: 32px;
+  position: absolute;
+  margin: 16px;
+  top: 0;
+  right: 0;
+}
+
+@media (max-width: 1100px) {
+  .logo {
+    display: none;
+  }
+}
+
+ul,
+ol {
+  padding-left: 20px;
+}
+
+a {
+  color: #1e90ff; /* Adjusted link color for better visibility on dark background */
+}
+
+pre {
+  margin: -4px -16px;
+  padding: 10px; /* Reduced padding */
+  white-space: pre-wrap;
+  background-color: #333333; /* Dark background for preformatted text */
+  color: #ffffff; /* Light text color */
+  border-radius: var(--border-radius);
+}
+
+.chatContainer {
+  display: flex;
+  flex-direction: column-reverse;
+  height: 100%;
+  width: 100%;
+  background-color: #121212; /* Dark background for the chat container */
+  color: #ffffff; /* Light text color */
+}
+
+.inputForm {
+  display: flex;
+  width: 100%;
+  padding: 5px;
+  padding-bottom: 10px; /* Reduced padding */
+  order: 1;
+  background-color: #1e1e1e; /* Dark background for the input form */
+}
+
+.input {
+  flex-grow: 1;
+  padding: 8px 12px;
+  margin-right: 5px;
+  border-radius: 30px;
+  border: 2px solid transparent;
+  font-size: 0.8em;
+  background-color: #333333; /* Dark background for the input */
+  color: #ffffff; /* Light text color */
+}
+
+.input:focus {
+  outline: none !important;
+  border-color: #ffffff; /* Light border color on focus */
+  background-color: #444444; /* Slightly lighter background on focus */
+}
+
+.button {
+  padding: 6px 16px;
+  background-color: #ffffff; /* Light background for the button */
+  color: #000000; /* Dark text color */
+  border: none;
+  font-size: 0.8em;
+  border-radius: 30px; /* Removed duplicate border-radius property */
+}
+
+.button:disabled {
+  background-color: lightgrey;
+}
+
+.messages {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  order: 2;
+  white-space: pre-wrap;
+  background-color: #121212; /* Dark background for messages */
+}
+
+.userMessage,
+.assistantMessage,
+.codeMessage {
+  margin: 4px 0;
+  padding: 6px 10px;
+  align-self: flex-start;
+  border-radius: 10px;
+  max-width: 80%;
+  overflow-wrap: break-word;
+  font-size: 0.9em;
+}
+
+.assistantMessage img {
+  max-width: 100%;
+  margin: 4px 0;
+  border-radius: 5px;
+}
+
+.userMessage {
+  align-self: flex-end;
+  color: #000000; /* Dark text color */
+  background-color: #ffffff; /* Light background color */
+}
+
+.assistantMessage {
+  background-color: #333333; /* Dark background for assistant messages */
+  color: #ffffff; /* Light text color */
+}
+
+.codeMessage {
+  padding: 6px 10px;
+  background-color: #444444; /* Dark background for code messages */
+  color: #ffffff; /* Light text color */
+  font-family: monospace;
+  counter-reset: line;
+}
+
+.codeMessage > div {
+  margin-top: 2px;
+}
+
+.codeMessage span {
+  color: #b8b8b8;
+  margin-right: 5px;
+}
+
+.fileViewer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  background-color: #1e1e1e; /* Dark background */
+  overflow: hidden;
+  border-radius: 10px;
+  color: #ffffff; /* Light text color */
+}
+
+.filesList {
+  overflow-y: auto;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+  width: 100%;
+}
+
+.grow {
+  flex-grow: 1;
+}
+
+.fileEntry {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #444444; /* Darker border */
+  gap: 8px;
+  width: 100%;
+}
+
+.fileName {
+  flex-grow: 1;
+  color: #ffffff; /* Light text color */
+}
+
+.fileStatus {
+  font-size: 0.8em;
+  color: #cccccc; /* Light grey text color */
+}
+
+.fileDeleteIcon {
+  cursor: pointer;
+  color: #ff5555; /* Red delete icon */
+}
+
+.fileUploadContainer {
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+}
+
+.fileUploadBtn {
+  background-color: #ffffff; /* Light background */
+  color: #000000; /* Dark text color */
+  padding: 6px 16px;
+  border-radius: 20px;
+  text-align: center;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.fileUploadInput {
+  display: none;
+}
+
+.title {
+  font-size: 1em;
+  font-weight: 600;
+  color: #ffffff; /* Light text color */
+}
+
+.fileName {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  color: #ffffff; /* Light text color */
+}
+
