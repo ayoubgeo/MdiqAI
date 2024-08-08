@@ -1,0 +1,14 @@
+nohup: ignoring input
+/home2/cartoma/mdiq/start-mdqi.sh: line 2: nvm: command not found
+
+> assistants-nextjs@0.1.0 start
+> next start
+
+   ▲ Next.js 14.1.4
+   - Local:        http://localhost:3000
+
+RangeError: WebAssembly.instantiate(): Out of memory: wasm memory
+    at lazyllhttp (eval at requireWithFakeGlobalScope (/home2/cartoma/mdiq/node_modules/next/dist/compiled/@edge-runtime/primitives/load.js:65:3), <anonymous>:9988:32)
+RangeError: WebAssembly.instantiate(): Out of memory: wasm memory
+    at lazyllhttp (node:internal/deps/undici/undici:9336:32)
+ ✓ Ready in 980ms

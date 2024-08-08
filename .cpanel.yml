@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home2/cartoma/mdiq/
+    - /bin/cp -R * $DEPLOYPATH
