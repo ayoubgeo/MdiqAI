@@ -1,6 +1,6 @@
 {
-  "/not-found": "app/not-found.js",
-  "/page": "app/page.js",
   "/api/assistants/threads/route": "app/api/assistants/threads/route.js",
-  "/api/assistants/threads/[threadId]/messages/route": "app/api/assistants/threads/[threadId]/messages/route.js"
+  "/page": "app/page.js",
+  "/api/assistants/threads/[threadId]/messages/route": "app/api/assistants/threads/[threadId]/messages/route.js",
+  "/api/files/[fileId]/route": "app/api/files/[fileId]/route.js"
 }
