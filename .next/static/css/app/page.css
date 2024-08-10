@@ -5,8 +5,9 @@
   display: flex;
   flex-direction: column-reverse;
   height: 100%;
-  width: 150%;
+  width: 100%; /* Changed to 100% to fit within the parent container */
   color: #ffffff; /* Light text color */
+  overflow: hidden; /* Prevents the entire chat container from causing overflow */
 }
 
 .chat_inputForm__Xq3TT {
@@ -49,13 +50,14 @@
 
 .chat_messages__0qVI1 {
   flex-grow: 1;
-  overflow-y: auto;
+  overflow-y: auto; /* Allows the messages to scroll if they overflow */
   padding: 10px;
   display: flex;
   flex-direction: column;
   order: 2;
   white-space: pre-wrap;
   background-color: #121212; /* Dark background for messages */
+  max-height: calc(100% - 100px); /* Adjust this to fit the available height in the parent container */
 }
 
 .chat_userMessage__ZvYaL,
