@@ -6,7 +6,7 @@
 .pnp.js
 .yarn/install-state.gz
 .next/
-
+/node-v18.17.0-linux-x64-glibc-217
 # testing
 /coverage
 
