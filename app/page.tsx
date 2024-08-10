@@ -62,7 +62,10 @@ const Chat = ({
   const [inputDisabled, setInputDisabled] = useState(false);
   const [threadId, setThreadId] = useState("");
 
-  // automatically scroll to bottom of chat
+  const maxRetries = 3; // Maximum number of retries
+  const retryDelay = 2000; // Delay between retries in milliseconds
+
+  // Automatically scroll to the bottom of the chat
   const messagesEndRef = useRef<HTMLDivElement | null>(null);
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -71,7 +74,7 @@ const Chat = ({
     scrollToBottom();
   }, [messages]);
 
-  // create a new threadID when chat component created
+  // Create a new threadID when the chat component is created
   useEffect(() => {
     const createThread = async () => {
       const res = await fetch(`/api/assistants/threads`, {
@@ -99,29 +102,28 @@ const Chat = ({
       handleReadableStream(stream);
     } catch (error) {
       console.error("Error sending message:", error);
-      // Re-attempt sending the message
       await retrySendMessage(text);
     }
   };
 
-  const retrySendMessage = async (text: string, retries = 3, delay = 2000) => {
-    for (let i = 0; i < retries; i++) {
-      try {
-        console.log(`Retrying to send message, attempt ${i + 1}...`);
-        await sendMessage(text);
-        return; // Exit if successful
-      } catch (error) {
-        console.error(`Retry ${i + 1} failed:`, error);
-        if (i < retries - 1) {
-          await new Promise((resolve) => setTimeout(resolve, delay));
-        } else {
-          // Final failure
-          setInputDisabled(false); // Re-enable input for the user to try again
-          appendToLastMessage(
-            "\nFailed to process after multiple attempts. Please try again.\n"
-          );
-        }
-      }
+  const retrySendMessage = async (text: string, attempt = 1) => {
+    if (attempt > maxRetries) {
+      appendToLastMessage(
+        `\nFailed to process after ${maxRetries} attempts. Please try again.\n`
+      );
+      setInputDisabled(false);
+      return;
+    }
+
+    appendToLastMessage(`\nAn error occurred. Retrying attempt ${attempt}/${maxRetries}...\n`);
+
+    await new Promise((resolve) => setTimeout(resolve, retryDelay));
+
+    try {
+      await sendMessage(text);
+    } catch (error) {
+      console.error(`Retry attempt ${attempt} failed:`, error);
+      retrySendMessage(text, attempt + 1);
     }
   };
 
@@ -162,7 +164,6 @@ const Chat = ({
   };
 
   const handleTextDelta = (delta: { value?: string; annotations?: any }) => {
-    console.log("Text delta received:", delta);
     if (delta.value != null) {
       appendToLastMessage(delta.value);
     }
@@ -176,22 +177,19 @@ const Chat = ({
   };
 
   const toolCallCreated = (toolCall: any) => {
-    console.log("Tool call created:", toolCall);
     if (toolCall.type !== "code_interpreter") return;
     appendMessage("code", "");
   };
 
   const toolCallDelta = (delta: any, snapshot: any) => {
-    console.log("Tool call delta:", delta, snapshot);
     if (delta.type !== "code_interpreter") return;
     if (!delta.code_interpreter.input) return;
     appendToLastMessage(delta.code_interpreter.input);
   };
 
   const handleRequiresAction = async (
-    event: any // Use 'any' if you do not have the exact type for 'AssistantStreamEvent.ThreadRunRequiresAction'
+    event: any
   ) => {
-    console.log("Requires action event:", event);
     const runId = event.data.id;
     const toolCalls = event.data.required_action.submit_tool_outputs.tool_calls;
     const toolCallOutputs = await Promise.all(
@@ -205,7 +203,6 @@ const Chat = ({
   };
 
   const handleRunCompleted = () => {
-    console.log("Run completed");
     setInputDisabled(false);
   };
 
@@ -234,28 +231,13 @@ const Chat = ({
 
     stream.on("event", (event) => {
       if (event.event === "thread.run.completed") {
-        if (messageContainsCode) {
-          console.log("Message contains code block, displaying placeholder.");
-          setTimeout(() => {
-            replaceLastMessage("assistant", currentMessage);
-          }, 2000);
-        } else {
-          replaceLastMessage("assistant", currentMessage);
-        }
+        replaceLastMessage("assistant", currentMessage);
       }
     });
 
     stream.on("error", async (err) => {
       console.error("Stream error:", err);
-      appendToLastMessage(
-        "\nAn error occurred while processing. Retrying...\n"
-      );
-      try {
-        await retrySendMessage(currentMessage, 3, 2000);
-      } catch (retryError) {
-        appendToLastMessage("\nFailed to process after multiple attempts.\n");
-        setInputDisabled(false);
-      }
+      await retrySendMessage(currentMessage, 1);
     });
   };
 
