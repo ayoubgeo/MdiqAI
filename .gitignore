@@ -5,7 +5,12 @@
 /.pnp
 .pnp.js
 .yarn/install-state.gz
-.next/
+.next
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
+.yarn/install-state.gz
+.yarn/unplugged
 /node-v18.17.0-linux-x64-glibc-217
 # testing
 /coverage

@@ -106,13 +106,13 @@ const Chat = ({
     }
   };
 
-  const retrySendMessage = async (text: string, attempt = 1) => {
+const retrySendMessage = async (text: string, attempt = 1) => {
     if (attempt > maxRetries) {
-      appendToLastMessage(
-        `\nFailed to process after ${maxRetries} attempts. Please try again.\n`
-      );
-      setInputDisabled(false);
-      return;
+        appendToLastMessage(
+            `\nFailed to process after ${maxRetries} attempts. Please try again later.\n`
+        );
+        setInputDisabled(false);
+        return;
     }
 
     appendToLastMessage(`\nAn error occurred. Retrying attempt ${attempt}/${maxRetries}...\n`);
@@ -120,12 +120,19 @@ const Chat = ({
     await new Promise((resolve) => setTimeout(resolve, retryDelay));
 
     try {
-      await sendMessage(text);
+        await sendMessage(text);
     } catch (error) {
-      console.error(`Retry attempt ${attempt} failed:`, error);
-      retrySendMessage(text, attempt + 1);
+        console.error(`Retry attempt ${attempt} failed:`, error);
+        // If the error is the same as before, don't retry endlessly
+        if (error.message.includes("Final run has not been received")) {
+            appendToLastMessage("\nIt seems the server is having trouble processing your request. Please try again later.\n");
+            setInputDisabled(false);
+            return;
+        }
+        retrySendMessage(text, attempt + 1);
     }
-  };
+};
+
 
   const submitActionResult = async (runId: string, toolCallOutputs: any) => {
     const response = await fetch(
